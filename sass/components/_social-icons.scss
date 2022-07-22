@@ -1,0 +1,20 @@
+.social-icons {
+  display: flex;
+  flex-direction: column;
+  @include position(absolute, auto, auto, 30px, 30px);
+  a {
+    color: var(--txt-sec-clr);
+    margin-bottom: 30px;
+    transition: all 0.2s linear;
+    opacity: 0.7;
+    .iconify {
+      width: 22px;
+      height: 22px;
+    }
+    &:hover {
+      transform: scale(1.5);
+      color: var(--txt-prim-clr);
+      opacity: 1;
+    }
+  }
+}

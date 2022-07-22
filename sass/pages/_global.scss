@@ -1,0 +1,202 @@
+/*-----------------------------
+---------  Css Variables  -----
+-----------------------------*/
+
+:root {
+  // Bg Colors
+  --bg-prim-clr: #222536;
+  --bg-sec-clr: #36394d;
+  // Text Colors
+  --txt-prim-clr: #f5f5f5;
+  --txt-sec-clr: #c0c0c5;
+  // Main Primary-color
+  --main-clr: #11a3e7;
+}
+
+/*-----------------------------
+---------  Main Styles  -----
+-----------------------------*/
+
+html {
+  scroll-behavior: smooth;
+}
+
+// Body
+body {
+  font-family: "Cairo", sans-serif;
+  background-color: var(--bg-prim-clr);
+  position: relative;
+}
+
+// Scroll bar
+::-webkit-scrollbar {
+  display: none;
+}
+
+/*****[ Typography  ]*****/
+/* || Typography Size */
+h1 {
+  font-size: clamp(42px, 5.5vw, 100px);
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+h2 span {
+  font-size: clamp(32px, 2.3vw, 40px);
+  font-weight: 600;
+  letter-spacing: 1px;
+  &.section {
+    font-size: clamp(16px, 1.3vw, 20px);
+    @media screen and (max-width: 576px) {
+      font-size: 14px;
+    }
+  }
+}
+
+h3 {
+  font-size: clamp(24px, 1.8vw, 2em);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+p {
+  font-size: clamp(17px, 1.2vw, 1.5em);
+  line-height: 1.5;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+h1 ~ p {
+  font-size: clamp(24px, 2vw, 2.5em);
+  letter-spacing: 3px;
+}
+
+a {
+  font-size: 17px;
+}
+
+/* || Typography Colors */
+h1,
+h2,
+h3 {
+  color: var(--txt-prim-clr);
+}
+
+p {
+  color: var(--txt-sec-clr);
+}
+
+// Other Typography style
+h2 {
+  display: flex;
+  align-items: center;
+  span.text {
+    margin-bottom: 10px;
+    position: relative;
+  }
+  span.section {
+    margin-left: 32px;
+    @media screen and (max-width: 576px) {
+      position: absolute;
+      top: -30px;
+      left: 0;
+      margin-left: 0;
+    }
+  }
+}
+
+h3 {
+  margin-bottom: 15px;
+}
+
+h2 ~ p {
+  margin-bottom: 30px;
+}
+
+/*****[ Reset  ]*****/
+button,
+a {
+  outline: 0 !important;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+
+.container-fluid {
+  padding: 0 30px;
+}
+
+/*****[ Classes  ]*****/
+.main-clr {
+  color: var(--main-clr);
+  &:hover {
+    color: var(--main-clr);
+  }
+}
+.container-fluid {
+  max-width: 1920px;
+}
+
+.underlay {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  @include vertical-center;
+}
+
+.bg-lines {
+  &::before {
+    width: 100%;
+    height: 1860.95px;
+    @include vertical-center;
+    top: 84%;
+    z-index: -2;
+  }
+}
+
+/*****[ Buttons  ]*****/
+/* Primary Button */
+.my-btn {
+  background: none;
+  border: 2px solid var(--main-clr);
+  border-radius: 35px;
+  color: var(--main-clr) !important;
+  display: block;
+  font-size: 17px;
+  width: fit-content;
+  padding: 10px 30px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: all 0.2s linear;
+  @media screen and (max-width: 991px) {
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+
+  &.my-btn--prim {
+    background-color: var(--main-clr);
+    color: var(--txt-prim-clr) !important;
+    font-weight: bold;
+    position: relative;
+    text-transform: uppercase;
+    &::before {
+      background-color: var(--main-clr);
+      border-radius: 35px;
+      box-shadow: 0px 3px 35px rgba(53, 102, 124, 0.35);
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      @include vertical-center;
+    }
+  }
+  &:hover {
+    background-color: var(--txt-prim-clr);
+    font-weight: bold;
+    color: var(--main-clr) !important;
+    &.my-btn--prim {
+      box-shadow: 0px 3px 35px rgba(53, 102, 124, 0.55);
+    }
+  }
+}

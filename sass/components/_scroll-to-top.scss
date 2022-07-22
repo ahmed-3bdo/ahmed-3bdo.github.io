@@ -1,0 +1,40 @@
+/*-------------------------------
+  ------  Scroll To Top  --------
+  -----------------------------*/
+#scroll-to-top {
+  position: fixed;
+  right: -65px;
+  bottom: 100px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  transform: rotate(-90deg);
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+  z-index: 99;
+
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .scroll__progress-container {
+    background-color: var(--bg-sec-clr);
+    width: 80px;
+    height: 2px;
+    position: relative;
+    top: 2px;
+    left: 20px;
+    .scroll__progress {
+      background-color: var(--txt-prim-clr);
+      width: 0;
+      height: 100%;
+      position: absolute;
+      right: 0;
+    }
+  }
+  .scroll__text {
+    color: var(--txt-prim-clr);
+  }
+}

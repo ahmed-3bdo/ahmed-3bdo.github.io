@@ -1,0 +1,193 @@
+/*-----------------------------
+------------  Navar  ----------
+-----------------------------*/
+.navbar {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  padding: 0 10px;
+  z-index: 9999;
+  backdrop-filter: brightness(105%) blur(18px);
+  -webkit-backdrop-filter: brightness(105%) blur(18px);
+
+  a,
+  li {
+    color: var(--txt-prim-clr);
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+    &:hover {
+      color: var(--txt-sec-clr);
+    }
+  }
+
+  .container-fluid {
+    height: 90px;
+    position: relative;
+    transition: all 0.25s ease-in-out 550ms;
+
+    &.active {
+      height: 100vh;
+      padding-top: 30px;
+    }
+
+    .navbar__logo {
+      position: absolute;
+      top: 30px;
+      left: 20px;
+      a {
+        font-weight: bold;
+        font-size: 20px;
+      }
+    }
+
+    .navbar__list {
+      position: absolute;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      margin-bottom: 0;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      @media screen and (max-width: 900px) {
+        width: auto;
+      }
+      @media screen and (max-width: 768px) {
+        display: block !important;
+        text-align: center;
+        width: 100%;
+        height: auto;
+        top: -100vh;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 100ms ease-in-out 400ms;
+        z-index: 99;
+        li {
+          margin-bottom: 40px;
+          font-weight: bold;
+          font-size: 32px;
+          span {
+            transition: all 0.2s ease-in;
+          }
+          &:hover {
+            color: var(--main-clr);
+            transform: translateX(15px);
+            span {
+              opacity: 0;
+            }
+          }
+        }
+        &.active {
+          top: 50%;
+          transition-delay: 800ms;
+          transition-duration: 240ms;
+          transition-timing-function: cubic-bezier(0.1, 0.2, 0.3, 1.4);
+        }
+      }
+
+      li {
+        padding: 5px 42px;
+        letter-spacing: 1px;
+        display: flex;
+        flex-wrap: nowrap;
+        @media screen and (min-width: 768px) and (max-width: 900px) {
+          padding: 5px 22px;
+        }
+        span {
+          flex-wrap: nowrap;
+          font-weight: bold;
+          padding-right: 3px;
+        }
+      }
+
+      .item__eclipse--blured {
+        background-color: var(--main-clr);
+        border-radius: 50%;
+        position: absolute;
+        content: "";
+        width: 93px;
+        height: 60px;
+        left: 34px;
+        filter: blur(10px);
+        opacity: 0.55;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.13, 0.24, 0.25, 1.64);
+        z-index: -2;
+        @media screen and (min-width: 768px) and (max-width: 900px) {
+          width: 50px;
+        }
+      }
+      .item__underline {
+        background-color: var(--main-clr);
+        border-radius: 3px;
+        position: absolute;
+        content: "";
+        width: 93px;
+        height: 4px;
+        top: 86px;
+        left: 34px;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.13, 0.24, 0.25, 1.64);
+        z-index: 1;
+        @media screen and (min-width: 768px) and (max-width: 900px) {
+          width: 50px;
+        }
+      }
+    }
+
+    .resume {
+      @media screen and (min-width: 768px) {
+        position: absolute;
+        top: 18px;
+        right: 20px;
+      }
+      a {
+        color: var(--main-clr);
+      }
+    }
+
+    .navbar__menu-btn {
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      position: absolute;
+      top: 25px;
+      right: 20px;
+      span {
+        position: absolute;
+        content: "";
+        display: block;
+        width: 100%;
+        height: 5px;
+        background-color: var(--main-clr);
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.13, 0.24, 0.25, 1.64);
+        &:first-child {
+          top: calc(50% - 6px);
+        }
+        &:last-child {
+          top: calc(50% + 6px);
+        }
+      }
+
+      &.active {
+        span {
+          top: 50%;
+          &:first-child {
+            animation: rotate45 0.3s 0.35s forwards;
+          }
+          &:last-child {
+            animation: rotate135 0.3s 0.35s forwards;
+          }
+        }
+      }
+    }
+  }
+}
+
+@supports not (backdrop-filter: brightness(105%) blur(18px)) {
+  .navbar {
+    background-color: var(--bg-prim-clr);
+  }
+}

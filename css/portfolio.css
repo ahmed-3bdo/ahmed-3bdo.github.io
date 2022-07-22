@@ -1,0 +1,19 @@
+/*-----------------------------
+------------  Navar  ----------
+-----------------------------*/
+.navbar .container-fluid .navbar__list .item__eclipse--blured {
+  width: 115px;
+  left: 347px; }
+
+.navbar .container-fluid .navbar__list .item__underline {
+  width: 115px;
+  left: 347px; }
+
+/*-------------------------------
+  ---------  Portfolio  ---------
+  -----------------------------*/
+.portfolio {
+  padding-top: 150px !important;
+  overflow: hidden; }
+
+/*# sourceMappingURL=portfolio.css.map */

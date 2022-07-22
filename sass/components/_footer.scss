@@ -1,0 +1,74 @@
+/*-----------------------------
+-----------  Footer  ----------
+-----------------------------*/
+footer {
+  position: relative;
+  overflow: hidden;
+  &::before {
+    background: url("../imgs/footer-bg.svg") no-repeat top center;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    @include vertical-center;
+    top: 70%;
+    z-index: -1;
+  }
+  .container-fluid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 90px;
+    column-gap: 20px;
+
+    backdrop-filter: brightness(105%) blur(18px);
+    color: var(--txt-sec-clr);
+    @media screen and (max-width: 768px) {
+      height: auto;
+      justify-content: center;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    .footer__copyright {
+      @media screen and (max-width: 668px) {
+        margin-bottom: 25px;
+      }
+      span {
+        a:hover {
+          color: var(--main-clr);
+        }
+      }
+    }
+  }
+}
+.global-social-icons {
+  .social-icons {
+    position: unset;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    a {
+      margin-bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
+      .iconify {
+        width: 24px;
+        height: 24px;
+        &.behance {
+          width: 26px;
+          height: 26px;
+          margin-bottom: -3px;
+        }
+      }
+    }
+  }
+}
+@supports not (backdrop-filter: brightness(105%) blur(18px)) {
+  footer {
+    background-color: var(--bg-prim-clr);
+  }
+}
